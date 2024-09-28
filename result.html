@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indochine Song Finder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <a href="/index.html"><img src="assets/logo.png" alt="Logo du site" width="300px" style="margin-top: 20px;"></a>
+
+    <p data-translate="credits">Fait avec ❤ par <a href="https://github.com/MinethanDev">Minethan</a> - 2024</p>
+
+    <div id="language-buttons">
+        <img src="assets/french.png" class="flag" alt="Français" width="40px" onclick="setLanguage('fr')">
+        <img src="assets/english.png" class="flag" alt="English" width="40px" onclick="setLanguage('en')">
+    </div>
+
+    <div id="box-translucide">
+        <h1 data-translate="recommendation-text">D'après tes réponses, tu devrais écouter :</h1>
+        <img id="album-cover" class="album-cover" alt="Album cover" width="300px">
+        <div id="song-details" class="song-details"></div>
+        <button id="spotify-link" onclick="openSpotify()" data-translate="spotify-button">Écouter sur Spotify</button>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const song = JSON.parse(decodeURIComponent(urlParams.get('song')));
+
+        document.getElementById("album-cover").src = song.albumCover;
+        document.getElementById("song-details").innerHTML = `<h2>${song.title}</h2>
+            <p data-translate="artist-label"></p> ${song.artist}
+            <p data-translate="album-label"></p> ${song.album}
+            <p data-translate="release-label"></p> ${song.releaseDate}`;
+
+        function openSpotify() {
+            window.location.href = song.spotifyLink;
+        }
+    </script>
+
+    <script src="translate.js"></script>
+</body>
+</html>

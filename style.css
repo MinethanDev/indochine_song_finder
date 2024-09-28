@@ -1,0 +1,143 @@
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    margin: 0px;
+    color: white;
+    background-image: url("assets/background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-size: 1rem;
+}
+
+select, button {
+    padding: 5px;
+    margin-top: 5px;
+    width: 100%;
+    max-width: 300px;
+    font-size: 1rem;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #1DB954;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 300px;
+}
+
+button:hover {
+    background-color: #1aa34a;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 1.2rem;
+}
+
+#box-translucide {
+    margin-top: 20px;
+    background-color: #000000c0;
+    display: inline-block;
+    padding: 30px 200px 30px 200px;
+    border-radius: 25px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.flag {
+    cursor: pointer;
+    width: 40px;
+    margin: 5px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.album-cover {
+    width: 80%;
+    max-width: 300px;
+}
+
+@media (max-width: 600px) {
+    #box-translucide {
+        padding: 20px 30px;
+        width: 90%;
+    }
+
+    #language-buttons img {
+        width: 30px;
+        margin: 5px;
+    }
+
+    button {
+        padding: 10px;
+        width: 100%;
+        max-width: 200px;
+    }
+
+    .album-cover {
+        width: 80%;
+        max-width: 200px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    select, button {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+
+    #box-translucide {
+        padding: 30px 100px;
+    }
+
+    a img {
+        max-width: 250px;
+    }
+
+    select, button {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .album-cover {
+        max-width: 250px;
+    }
+}
+
+@media (min-width: 1025px) {
+    #box-translucide {
+        padding: 30px 200px;
+    }
+
+    a img {
+        max-width: 300px;
+    }
+}
