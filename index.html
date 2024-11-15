@@ -9,78 +9,82 @@
 </head>
 <body>
 
-    <a href="/indochine_song_finder"><img src="assets/logo.png" alt="Logo du site" width="300px" style="margin-top: 20px;"></a>
+    <div id="contenu">
+        <a href="/indochine_song_finder"><img src="assets/logo.png" alt="Logo du site" width="300px" style="margin-top: 20px;"></a>
 
-    <p data-translate="credits">Fait avec ❤ par <a href="https://github.com/MinethanDev">Minethan</a> - 2024</p>
+        <div id="language-buttons">
+            <img src="assets/french.png" class="flag" alt="Français" width="40px" onclick="setLanguage('fr')">
+            <img src="assets/english.png" class="flag" alt="English" width="40px" onclick="setLanguage('en')">
+        </div>
 
-    <div id="language-buttons">
-        <img src="assets/french.png" class="flag" alt="Français" width="40px" onclick="setLanguage('fr')">
-        <img src="assets/english.png" class="flag" alt="English" width="40px" onclick="setLanguage('en')">
+        <div id="box-translucide">
+            <form id="songForm">
+                <label for="intro" data-translate="label-intro">Type d'intro :</label>
+                <select id="intro" name="intro">
+                    <option value="Courte" data-translate="option-intro-short">Courte</option>
+                    <option value="Moyenne" data-translate="option-intro-medium">Moyenne</option>
+                    <option value="Longue" data-translate="option-intro-long">Longue</option>
+                    <option value="Peu importe" data-translate="option-any">Peu importe</option>
+                </select>
+        
+                <label for="mood" data-translate="label-mood">Chanson plutôt :</label>
+                <select id="mood" name="mood">
+                    <option value="Joyeuse" data-translate="option-happy">Joyeuse</option>
+                    <option value="Triste" data-translate="option-sad">Triste</option>
+                    <option value="Neutre" data-translate="option-neutral">Neutre</option>
+                    <option value="Peu importe" data-translate="option-any">Peu importe</option>
+                </select>
+        
+                <label for="theme" data-translate="label-theme">Thème de la chanson :</label>
+                <select id="theme" name="theme">
+                    <option value="Amour" data-translate="option-love">Amour</option>
+                    <option value="Guerre" data-translate="option-war">Guerre</option>
+                    <option value="Sexe" data-translate="option-sex">Sexe</option>
+                    <option value="Autre" data-translate="option-other">Autre</option>
+                    <option value="Peu importe" data-translate="option-any">Peu importe</option>
+                </select>
+        
+                <label for="duree" data-translate="label-duration">Durée de la chanson :</label>
+                <select id="duree" name="duree">
+                    <option value="Standard" data-translate="option-standard">Standard</option>
+                    <option value="Moyenne" data-translate="option-medium">Moyenne</option>
+                    <option value="Longue" data-translate="option-long">Longue</option>
+                    <option value="Peu importe" data-translate="option-any">Peu importe</option>
+                </select>
+        
+                <label for="type" data-translate="label-type">Chanson studio ou live ? :</label>
+                <select id="type" name="type">
+                    <option value="Studio" data-translate="option-studio">Studio</option>
+                    <option value="Live" data-translate="option-live">Live</option>
+                    <option value="Peu importe" data-translate="option-any">Peu importe</option>
+                </select>
+        
+                <label for="tempo" data-translate="label-tempo">Chanson plutôt :</label>
+                <select id="tempo" name="tempo">
+                    <option value="Calme" data-translate="option-calm">Calme</option>
+                    <option value="Rythmée" data-translate="option-fast">Rythmée</option>
+                    <option value="Peu importe" data-translate="option-any">Peu importe</option>
+                </select>
+        
+                <label for="annee" data-translate="label-year">Ancienneté :</label>
+                <select id="annee" name="annee">
+                    <option value="1981-2001" data-translate="option-years-1">1981-2001</option>
+                    <option value="2001-2024" data-translate="option-years-2">2001-2024</option>
+                    <option value="Peu importe" data-translate="option-any">Peu importe</option>
+                </select>
+            </form>
+        
+            <button type="button" onclick="getSong()" data-translate="button-validate">Valider</button>
+        
+            <p id="result"></p>
+
+            <script src="script.js"></script>
+            <script src="translate.js"></script>
+        </div>
     </div>
-
-    <div id="box-translucide">
-        <form id="songForm">
-            <label for="intro" data-translate="label-intro">Type d'intro :</label>
-            <select id="intro" name="intro">
-                <option value="Courte" data-translate="option-intro-short">Courte</option>
-                <option value="Moyenne" data-translate="option-intro-medium">Moyenne</option>
-                <option value="Longue" data-translate="option-intro-long">Longue</option>
-                <option value="Peu importe" data-translate="option-any">Peu importe</option>
-            </select>
     
-            <label for="mood" data-translate="label-mood">Chanson plutôt :</label>
-            <select id="mood" name="mood">
-                <option value="Joyeuse" data-translate="option-happy">Joyeuse</option>
-                <option value="Triste" data-translate="option-sad">Triste</option>
-                <option value="Neutre" data-translate="option-neutral">Neutre</option>
-                <option value="Peu importe" data-translate="option-any">Peu importe</option>
-            </select>
-    
-            <label for="theme" data-translate="label-theme">Thème de la chanson :</label>
-            <select id="theme" name="theme">
-                <option value="Amour" data-translate="option-love">Amour</option>
-                <option value="Guerre" data-translate="option-war">Guerre</option>
-                <option value="Sexe" data-translate="option-sex">Sexe</option>
-                <option value="Autre" data-translate="option-other">Autre</option>
-                <option value="Peu importe" data-translate="option-any">Peu importe</option>
-            </select>
-    
-            <label for="duree" data-translate="label-duration">Durée de la chanson :</label>
-            <select id="duree" name="duree">
-                <option value="Standard" data-translate="option-standard">Standard</option>
-                <option value="Moyenne" data-translate="option-medium">Moyenne</option>
-                <option value="Longue" data-translate="option-long">Longue</option>
-                <option value="Peu importe" data-translate="option-any">Peu importe</option>
-            </select>
-    
-            <label for="type" data-translate="label-type">Chanson studio ou live ? :</label>
-            <select id="type" name="type">
-                <option value="Studio" data-translate="option-studio">Studio</option>
-                <option value="Live" data-translate="option-live">Live</option>
-                <option value="Peu importe" data-translate="option-any">Peu importe</option>
-            </select>
-    
-            <label for="tempo" data-translate="label-tempo">Chanson plutôt :</label>
-            <select id="tempo" name="tempo">
-                <option value="Calme" data-translate="option-calm">Calme</option>
-                <option value="Rythmée" data-translate="option-fast">Rythmée</option>
-                <option value="Peu importe" data-translate="option-any">Peu importe</option>
-            </select>
-    
-            <label for="annee" data-translate="label-year">Ancienneté :</label>
-            <select id="annee" name="annee">
-                <option value="1981-2001" data-translate="option-years-1">1981-2001</option>
-                <option value="2001-2024" data-translate="option-years-2">2001-2024</option>
-                <option value="Peu importe" data-translate="option-any">Peu importe</option>
-            </select>
-        </form>
-    
-        <button type="button" onclick="getSong()" data-translate="button-validate">Valider</button>
-    
-        <p id="result"></p>
-
-        <script src="script.js"></script>
-        <script src="translate.js"></script>
+    <div id="footer">
+        <p data-translate="credits">Fait avec ❤ par <a href="https://github.com/MinethanDev">Minethan</a> - 2024</p>
     </div>
 </body>
 </html>
