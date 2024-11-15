@@ -30,7 +30,7 @@ const translations = {
         'option-years-1': '1981-2001',
         'option-years-2': '2001-2024',
         'button-validate': 'Valider',
-        'credits': 'Fait avec ❤ par Minethan - 2024',
+        'credits': 'Fait avec ❤ par <a href="https://github.com/MinethanDev">Minethan</a> - 2024',
 
         // Result
         'title-result': 'Résultat - Chanson recommandée',
@@ -67,7 +67,7 @@ const translations = {
         'option-years-1': '1981-2001',
         'option-years-2': '2001-2024',
         'button-validate': 'Submit',
-        'credits': 'Made with ❤ by Minethan - 2024',
+        'credits': 'Made with ❤ by <a href="https://github.com/MinethanDev">Minethan</a> - 2024',
 
         // Result
         'title-result': 'Result - Recommended Song',
@@ -82,7 +82,11 @@ function setLanguage(language) {
     elements.forEach(element => {
         const key = element.getAttribute('data-translate');
         if (translations[language][key]) {
-            element.textContent = translations[language][key];
+            if (key === 'credits') {
+                element.innerHTML = translations[language][key];
+            } else {
+                element.textContent = translations[language][key];
+            }
         }
     });
 }
